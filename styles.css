@@ -1,21 +1,46 @@
 :root {
     --penguin-size: 300px;
-    --penguin-skin: #000;
+    --penguin-skin: #03258b;
     --penguin-belly: white;
     --penguin-beak: orange;
   }  
 @media (max-width: 350px) {
 }
-body {
-    background:royalblue;
-    }
 .penguin * {
     position: absolute;
 }
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -2;
+}
+.stars{
+    background: #000 url(stars.png) repeat top center;
+}
+.twinkling{
+    background: transparent url(twinkling.png) repeat top center;
+    z-index: -1;
+    animation: move-twinkling-back 200s linear infinite;
+}
+@keyframes move-twinkling-back{
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
 .container{
     background: #fff;
-    width: 50%;
-    margin: auto;
+    width: 40%;
 }
 .penguin {
 position: relative;
@@ -76,7 +101,7 @@ height: 60%;
 border-radius: 30% 30% 120% 30%;
 transform: rotate(130deg);
 z-index: 1;
-animation-duration: 3s;
+animation-duration: 2s;
 animation-name: wave;
 animation-iteration-count: infinite;
 transform-origin:0% 0%;
@@ -84,13 +109,13 @@ animation-timing-function: linear;
 }
 @keyframes wave {
     10% {
-    transform: rotate(110deg);
+    transform: rotate(90deg);
     }
     20% {
     transform: rotate(130deg);
     }
     30% {
-    transform: rotate(110deg);
+    transform: rotate(90deg);
     }
     40% {
     transform: rotate(130deg);
